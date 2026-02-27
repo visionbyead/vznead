@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naija 4 D Win — VZN.EAD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <style>
+    /* Extra styles specific to project detail page */
+    .project-body {
+      padding: 0 48px;
+    }
+    @media (max-width: 900px) {
+      .project-body { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-follower"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">
+    <img src="../images/logo.png" alt="VZN.EAD" style="height: 100px; width: auto;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html#work">Work</a></li>
+    <li><a href="../portfolio.html">Portfolio</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#services">Services</a></li>
+  </ul>
+  <a href="../contact.html" class="nav-cta">Let's Talk</a>
+</nav>
+<!-- ══════════════════════════════════════
+     PROJECT HEADER
+     Edit: title, category, breadcrumb
+══════════════════════════════════════ -->
+<div class="project-hero-section">
+  <div class="project-breadcrumb">
+    <a href="../portfolio.html">← Portfolio</a> &nbsp;/&nbsp;   Commercials
+  </div>
+  <h1 class="project-title-big">Naija 4 D Win<br>AFCON 2025 Campaign</h1>
+</div>
+
+<!-- ══════════════════════════════════════
+     VIDEO (left) + DETAILS (right)
+══════════════════════════════════════ -->
+<div class="project-body">
+  
+
+    <!-- LEFT: VIDEO EMBED -->
+    <div class="project-video-col">
+      <div class="project-video-wrap">
+        <!--
+          HOW TO EMBED YOUR VIDEO:
+          YouTube:  src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+          Vimeo:    src="https://player.vimeo.com/video/YOUR_VIDEO_ID"
+          Replace YOUR_VIDEO_ID with your actual ID from the URL
+        -->
+        <iframe
+          src="https://www.youtube.com/embed/a2yTqP1oANs"
+          title="Naija 4 D Win AFCON 2025 Campaign"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Optional description below video -->
+    
+    </div>
+
+    <!-- RIGHT: PROJECT DETAILS -->
+    <div class="project-details-col">
+
+      <div class="detail-block">
+        <div class="detail-label">Client</div>
+        <div class="detail-val">Nigeria Football Federation</div>
+      </div>
+
+      <div class="detail-block">
+        <div class="detail-label">Category</div>
+        <div class="detail-val">Commercials</div>
+      </div>
+
+      <div class="detail-block">
+        <div class="detail-label">Year</div>
+        <div class="detail-val">2025</div>
+      </div>
+
+      <div class="detail-block">
+        <div class="detail-label">Services</div>
+        <div class="detail-text">Sound Design, Offline Edit</div>
+      </div>
+
+      <div class="detail-block">
+        <div class="detail-label">Director</div>
+        <div class="detail-val">Timilehin Oyintoke</div>
+      </div>
+
+      <div class="detail-block">
+        <div class="detail-label">Production</div>
+        <div class="detail-text">Sound Designed using Soundly & Premiere Pro</div>
+      </div>
+
+      
+
+      <!-- ↑ COPY .detail-block to add more rows -->
+
+    </div>
+  </div><!-- /grid -->
+</div><!-- /project-body -->
+
+<!-- ══════════════════════════════════════
+     GALLERY — 6 image / gif slots
+     HOW TO ADD IMAGES OR GIFS:
+     Replace each .gallery-placeholder div with:
+     <img src="../images/gallery/shot-1.jpg" alt="Frame description">
+     or for GIFs:
+     <img src="../images/gallery/animation.gif" alt="VFX shot">
+══════════════════════════════════════ -->
+
+
+<!-- ══════════════════════════════════════
+     NEXT / PREV PROJECT NAVIGATION
+     Update href and .project-nav-name for each project
+══════════════════════════════════════ -->
+<div class="project-nav">
+  <a href="../portfolio.html" class="project-nav-item" style="text-align:center;">
+    <div class="project-nav-dir">← Back</div>
+    <div class="project-nav-name">See More Works</div>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="../index.html" class="footer-logo">
+    <img src="../images/logo.png" alt="VZN.EAD" style="height: 100px; width: auto;">
+  </a>
+  <ul class="footer-links">
+    <li><a href="https://instagram.com/vzn.ead" target="_blank">Instagram</a></li>
+    <li><a href="mailto:visionbyead@gmail.com">visionbyead@gmail.com</a></li>
+  <div class="footer-copy">© 2025 VZN.EAD. All rights reserved.</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../js/main.js"></script>
+<script>
+window.addEventListener('load', () => {
+  gsap.fromTo('.project-title-big',
+    { opacity:0, y:50 },
+    { opacity:1, y:0, duration:1, ease:'power4.out', delay:0.1 }
+  );
+  gsap.fromTo('.project-video-col, .project-details-col',
+    { opacity:0, y:36 },
+    { opacity:1, y:0, duration:0.8, stagger:0.1, ease:'power3.out', delay:0.3 }
+  );
+  gsap.utils.toArray('.gallery-item').forEach((el, i) => {
+    gsap.fromTo(el,
+      { opacity:0, y:30 },
+      { opacity:1, y:0, duration:0.6, ease:'power3.out',
+        scrollTrigger: { trigger: el, start:'top 90%', once:true },
+        delay: i * 0.06
+      }
+    );
+  });
+});
+</script>
+</body>
+</html>

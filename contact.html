@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — VZN.EAD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-follower"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">VZN<span>.</span>EAD</a>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero" style="border-bottom: 1px solid var(--white-faint);">
+  <div>
+    <div class="section-label">Get In Touch</div>
+    <h1 class="section-title">Contact</h1>
+  </div>
+</div>
+
+<!-- CONTACT BODY -->
+<div class="contact-wrap">
+
+  <!-- LEFT INFO -->
+  <div class="contact-left">
+    <h2 class="contact-title">Ready to<br>Work <span>With</span><br>You.</h2>
+    <p class="contact-text">Tell us about your project and we'll get back to you as soon as possible. Whether it's a music video, brand film, or just a raw idea — let's build something remarkable together.</p>
+    <div class="contact-info">
+      <div class="ci-row">
+        <span class="ci-label">Email</span>
+        <!-- ↓ Replace with your email -->
+        <span class="ci-val">visionbyead@gmail.com</span>
+      </div>
+      <div class="ci-row">
+        <span class="ci-label">Based in</span>
+        <span class="ci-val">Lagos, Nigeria</span>
+      </div>
+      <div class="ci-row">
+        <span class="ci-label">Instagram</span>
+        <span class="ci-val">@vzn.ead</span>
+      </div>
+      <div class="ci-row">
+        <span class="ci-label">Available</span>
+        <span class="ci-val" style="color:var(--green);">For new projects </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM -->
+ <form class="contact-form" action="https://formspree.io/f/xzdakawj" method="POST">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="your@email.com" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="project-type">Project Type</label>
+      <select id="project-type">
+        <option value="">Select a service…</option>
+        <option>Music Video</option>
+        <option>Brand/Fashion Film</option>
+        <option>Commercial</option>
+        <option>VFX</option>
+        <option>Sound Design</option>
+        <option>Color Grading</option>
+        <option> Social Content</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="budget">Budget Range</label>
+      <select id="budget">
+        <option value="">Select a range…</option>
+        <option>Under $1,000</option>
+        <option>$1,000 – $5,000</option>
+        <option>$5,000 – $15,000</option>
+        <option>$15,000+</option>
+        <option>Let's discuss</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" placeholder="Tell me about your project, timeline, and vision…" required></textarea>
+    </div>
+    <button type="submit" class="form-submit">Send Message →</button>
+    <p class="form-note">We'll be in touch with you as soon as possible.</p>
+  </form>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">
+    <img src="images/logo.png" alt="VZN.EAD" style="height: 100px; width: auto;">
+  </a>
+  <ul class="footer-links">
+    <li><a href="https://instagram.com/vzn.ead" target="_blank">Instagram</a></li>
+    <li><a href="mailto:visionbyead@gmail.com">visionbyead@gmail.com</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 VZN.EAD. All rights reserved.</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+window.addEventListener('load', () => {
+  gsap.fromTo('.contact-title, .contact-text, .contact-info',
+    { opacity:0, y:36 },
+    { opacity:1, y:0, duration:0.8, stagger:0.1, ease:'power3.out', delay:0.2 }
+  );
+  gsap.fromTo('.contact-form',
+    { opacity:0, x:30 },
+    { opacity:1, x:0, duration:0.9, ease:'power3.out', delay:0.3 }
+  );
+});
+</script>
+</body>
+</html>

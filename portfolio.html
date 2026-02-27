@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — VZN.EAD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="../images/logo.png">
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-follower"></div>
+
+<!-- NAV -->
+ <nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="VZN.EAD" style="height: 100px; width: auto;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+</nav>
+<!-- VIDEO MODAL -->
+<div id="modal">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal()">✕ &nbsp;Close</button>
+    <iframe class="modal-iframe" id="modal-iframe" src="" frameborder="0"
+      allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div>
+    <div class="section-label">All Projects</div>
+    <h1 class="section-title">Portfolio</h1>
+  </div>
+  <div class="filter-bar" id="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="commercial">Commercials</button>
+    <button class="filter-btn" data-filter="brand-film">Brand/Fashion Film</button>
+    <button class="filter-btn" data-filter="event">Event Higlights</button>
+    <button class="filter-btn" data-filter="personal">Personal</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PORTFOLIO GRID
+     HOW TO ADD A PROJECT:
+     1. Copy any .p-item block below
+     2. Set data-cat to match a filter: music-video / brand-film / commercial / vfx / personal
+     3. Set href to the project page (e.g. pages/project-2.html)
+     4. Add thumbnail: replace .p-placeholder with <img src="../images/thumb.jpg">
+     5. Update .p-cat and .p-name
+══════════════════════════════════════ -->
+<div class="portfolio-grid" id="portfolio-grid">
+
+  <!-- PROJECT 01 -->
+  <a href="pages/Naija4DWin.html" class="p-item" data-cat="commercial" data-date="2025-12-22">
+  <video autoplay muted loop playsinline>
+    <source src="images/thumbnails/naija.mp4" type="video/mp4">
+  </video>
+  <div class="p-overlay">
+    <div class="p-cat">Commercials</div>
+    <div class="p-name">Naija 4 D Win AFCON 2025 Campaign</div>
+  </div>
+</a>
+
+  <!-- PROJECT 02 -->
+  <a href="pages/bta.html" class="p-item" data-cat="commercial" data-date="2025-10-22">
+  <video autoplay muted loop playsinline>
+    <source src="images/gallery/bta/5.mp4" type="video/mp4">
+  </video>
+  <div class="p-overlay">
+    <div class="p-cat">Commercials</div>
+    <div class="p-name">Block Traders Academy Commercial</div>
+  </div>
+</a>
+  <!-- PROJECT 03 -->
+  <a href="pages/Chop&Chill.html" class="p-item" data-cat="commercial" data-date="2025-12-15">
+  <video autoplay muted loop playsinline>
+    <source src="images/gallery/Chop&Chill/2.mp4" type="video/mp4">
+  </video>
+  <div class="p-overlay">
+    <div class="p-cat">Commercials</div>
+    <div class="p-name">Chop&Chill Commercial</div>
+  </div>
+</a>
+
+  <!-- PROJECT 04 -->
+  <a href="pages/Spiro.html" class="p-item" data-cat="commercial" data-date="2025-11-15">
+  <video autoplay muted loop playsinline>
+    <source src="images/thumbnails/spiro.mp4" type="video/mp4">
+  </video>
+  <div class="p-overlay">
+    <div class="p-cat">Commercials</div>
+    <div class="p-name">Spiro Commercial</div>
+  </div>
+</a>
+
+  <!-- PROJECT 05 -->
+  <a href="pages/Jan26 BatcaveEdit.html" class="p-item" data-cat="personal" data-date="2026-01-15">
+  <video autoplay muted loop playsinline>
+    <source src="images/thumbnails/jan26.mp4" type="video/mp4">
+  </video>
+  <div class="p-overlay">
+    <div class="p-cat">Personal</div>
+    <div class="p-name">January 2026 Batcave Edit</div>
+  </div>
+</a>
+  <!-- PROJECT 06 -->
+ <a href="pages/creative-playground-25.html" class="p-item" data-cat="event" data-date="2025-12-22">
+  <video autoplay muted loop playsinline>
+    <source src="images/thumbnails/cp25.mp4" type="video/mp4">
+  </video>
+  <div class="p-overlay">
+    <div class="p-cat">Event Highlight</div>
+    <div class="p-name">Creative Playground 2025</div>
+  </div>
+</a>
+
+  <!-- PROJECT 07 -->
+  <a href="pages/haze-couture.html" class="p-item" data-cat="commercial" data-date="2025-10">
+  <video autoplay muted loop playsinline>
+    <source src="images/thumbnails/haze.mp4" type="video/mp4">
+  </video>
+  <div class="p-overlay">
+    <div class="p-cat">Commercials</div>
+    <div class="p-name">Haze Couture AI AD</div>
+  </div>
+</a>
+
+  <!-- PROJECT 08 -->
+  <a href="pages/tedx-cu-2025.html" class="p-item" data-cat="event" data-date="2025-05-10">
+  <video autoplay muted loop playsinline>
+    <source src="images/thumbnails/tedx.mp4" type="video/mp4">
+  </video>
+  <div class="p-overlay">
+    <div class="p-cat">Event Highlights</div>
+    <div class="p-name">Tedx Covenant University 2025</div>
+  </div>
+</a>
+
+  <!-- PROJECT 09 -->
+  <a href="pages/sofjo-wedding-party.html" class="p-item" data-cat="brand-film" data-date="2025-12">
+  <video autoplay muted loop playsinline>
+    <source src="images/thumbnails/softjo.mp4" type="video/mp4">
+  </video>
+  <div class="p-overlay">
+    <div class="p-cat">Brand/Fashion Film</div>
+    <div class="p-name">Softjo Wedding Party</div>
+  </div>
+</a>
+
+  <!-- ↑ ADD MORE PROJECTS HERE — copy any .p-item block above -->
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="../index.html" class="footer-logo">
+    <img src="../images/logo.png" alt="VZN.EAD" style="height: 100px; width: auto;">
+  </a>
+  <ul class="footer-links">
+    <li><a href="https://instagram.com/vzn.ead" target="_blank">Instagram</a></li>
+    <li><a href="mailto:visionbyead@gmail.com">visionbyead@gmail.com</a></li>
+  <div class="footer-copy">© 2025 VZN.EAD. All rights reserved.</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+// Auto-sort by date (newest first)
+const grid = document.getElementById('portfolio-grid');
+const items = Array.from(grid.querySelectorAll('.p-item'));
+
+items.sort((a, b) => {
+  const dateA = a.dataset.date || '2000-01';
+  const dateB = b.dataset.date || '2000-01';
+  return dateB.localeCompare(dateA);
+}).forEach(item => grid.appendChild(item));
+
+// Filter logic — moves matching items to top with animation
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.filter;
+    const allItems = Array.from(grid.querySelectorAll('.p-item'));
+
+    if(cat === 'all') {
+      allItems.sort((a, b) => {
+        const dateA = a.dataset.date || '2000-01';
+        const dateB = b.dataset.date || '2000-01';
+        return dateB.localeCompare(dateA);
+      }).forEach((item, i) => {
+        grid.appendChild(item);
+        gsap.fromTo(item,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power3.out', delay: i * 0.05 }
+        );
+        item.style.pointerEvents = 'all';
+      });
+    } else {
+      const matching = allItems.filter(i => i.dataset.cat === cat);
+      const notMatching = allItems.filter(i => i.dataset.cat !== cat);
+
+      matching.forEach((item, i) => {
+        grid.appendChild(item);
+        gsap.fromTo(item,
+          { opacity: 0, y: 30, scale: 0.95 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power3.out', delay: i * 0.06 }
+        );
+        item.style.pointerEvents = 'all';
+      });
+      notMatching.forEach((item, i) => {
+        grid.appendChild(item);
+        gsap.to(item, { opacity: 0.08, scale: 0.94, duration: 0.4, ease: 'power2.out', delay: i * 0.03 });
+        item.style.pointerEvents = 'none';
+      });
+    }
+  });
+});
+
+// Animate in on load
+window.addEventListener('load', () => {
+  gsap.fromTo('.p-item',
+    { opacity: 0, y: 40 },
+    { opacity: 1, y: 0, duration: 0.7, stagger: 0.07, ease: 'power3.out', delay: 0.2 }
+  );
+});
+</script>
+
+</body>
+</html>

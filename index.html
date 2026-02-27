@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VZN.EAD — Visual Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+
+<!-- ── CURSOR ── -->
+<div id="cursor"></div>
+<div id="cursor-follower"></div>
+
+<!-- ── LOADER ── -->
+<div id="loader">
+  <img src="images/logo.png" alt="VZN.EAD" id="loader-logo-img" style="height: 300px; width: auto; margin-bottom: -100px;">
+  <div class="loader-track"><div class="loader-fill" id="loader-fill"></div></div>
+  <div class="loader-num" id="loader-num">000</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     NAV
+══════════════════════════════════════ -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="VZN.EAD">
+  <!-- ↑ LOGO IMAGE OPTION: Replace the line above with:
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="VZN.EAD">
+  </a>
+  and add .nav-logo img { height: 36px; width: auto; } to style.css -->
+
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+  <button class="nav-hamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════════════════════════════
+     VIDEO MODAL (shared)
+══════════════════════════════════════ -->
+<div id="modal">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal()">✕ &nbsp;Close</button>
+    <iframe class="modal-iframe" id="modal-iframe" src="" frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="hero">
+
+  <!-- ─────────────────────────────────
+       HERO BACKGROUND VIDEO
+       HOW TO ADD YOUR OWN VIDEO:
+       1. Put your video file in the /videos/ folder
+       2. Name it hero.mp4 (or change the src below)
+       3. For YouTube/Vimeo bg videos, use a downloaded mp4
+  ───────────────────────────────── -->
+  <div class="hero-video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="videos/hero.mp4" type="video/mp4">
+      <!-- Fallback if no video yet — just shows dark bg -->
+    </video>
+  </div>
+
+  <div class="hero-grain"></div>
+
+  
+  <!-- Logo / Title -->
+  <div class="hero-logo-wrap" id="hero-logo-wrap">
+    <!-- ────────────────────────────────────────────────────
+         CHOOSE ONE OF THE TWO OPTIONS BELOW:
+
+         OPTION A — Typographic logo (default, active now):
+    ──────────────────────────────────────────────────── -->
+    <div class="hero-logo-type" id="hero-title">
+      VZN<span class="dot">.</span>EAD
+    </div>
+
+    <!-- ────────────────────────────────────────────────────
+         OPTION B — Image logo:
+         Comment out Option A above and uncomment this:
+    <img src="images/logo.png" alt="VZN.EAD" class="hero-logo-img hero-logo-img-tag">
+    ──────────────────────────────────────────────────── -->
+  </div>
+
+  <div class="hero-bottom" id="hero-bottom">
+    <div>
+      <div class="hero-eyebrow" id="hero-eyebrow">Visual Studio · Est. 2023</div>
+      <p class="hero-desc">
+        Commercials · Brand Films<br>
+        Sound Design · VFX · Color
+      </p>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll to explore
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <!-- Duplicate items for seamless loop -->
+    <div class="marquee-item">Music Videos <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Brand Films <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Commercials <span class="marquee-dot"></span></div>
+    <div class="marquee-item">VFX <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Color Grading <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Sound Design <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Music Videos <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Brand Films <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Commercials <span class="marquee-dot"></span></div>
+    <div class="marquee-item">VFX <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Color Grading <span class="marquee-dot"></span></div>
+    <div class="marquee-item">Sound Design <span class="marquee-dot"></span></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     CLIENTS
+     HOW TO ADD CLIENT LOGOS:
+     1. Put logo files in /images/clients/
+     2. Copy a .client-item block and change the img src
+     3. The logos are auto-made white via CSS filter
+══════════════════════════════════════ -->
+<<section id="clients">
+  <div class="section-label">Clients & Brands</div>
+  <div class="clients-carousel">
+    <div class="clients-track">
+
+      <!-- FIRST SET -->
+      <div class="client-item"><img src="images/clients/nff.png" alt="Nigeria Football Federation"></div>
+      <div class="client-item"><img src="images/clients/spiro.png" alt="Spiro"></div>
+      <div class="client-item"><img src="images/clients/lib.png" alt="Love In the Boulevard"></div>
+      <div class="client-item"><img src="images/clients/tedx.png" alt="TEDxCovenant University "></div>
+     <div class="client-item"><img src="images/clients/winner.png" alt="Living Faith Church"></div>
+      <div class="client-item"><img src="images/clients/haze.png" alt="Haze Couture"></div>
+      
+
+      <!-- DUPLICATE SET (keeps loop seamless) -->
+      <div class="client-item"><img src="images/clients/nff.png" alt="Nigeria Football Federation"></div>
+      <div class="client-item"><img src="images/clients/spiro.png" alt="Spiro"></div>
+      <div class="client-item"><img src="images/clients/lib.png" alt="Love In the Boulevard"></div>
+      <div class="client-item"><img src="images/clients/tedx.png" alt="TEDxCovenant University "></div>
+      <div class="client-item"><img src="images/clients/winner.png" alt="Living Faith Church"></div>
+     <div class="client-item"><img src="images/clients/haze.png" alt="Haze Couture"></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     RECENT WORK
+     HOW TO ADD PROJECTS:
+     1. Copy a .work-item block
+     2. Add your thumbnail: <img class="work-thumb" src="images/project-thumb.jpg">
+        (replace the .work-thumb-placeholder div)
+     3. Change the link href to the project page
+     4. Update .work-cat and .work-name
+══════════════════════════════════════ -->
+<section id="work">
+  <div class="work-header">
+    <div>
+      <div class="section-label">Recent Work</div>
+      <h2 class="section-title">Selected<br>Projects</h2>
+    </div>
+    <a href="portfolio.html" class="see-more">See All Work</a>
+  </div>
+
+  <div class="work-grid reveal">
+
+    <!-- PROJECT 1 (featured — full width) -->
+    <a href="pages/Naija4DWin.html" class="work-item">
+      <video class="work-thumb" autoplay muted loop playsinline>
+        <source src="images/thumbnails/naija.mp4" type="video/mp4">
+      </video>
+      <div class="work-overlay">
+        <div class="work-cat">Sound Design</div>
+        <div class="work-name">Naija 4 D Win AFCON 2025 Campaign</div>
+      </div>
+      <div class="work-arrow">→</div>
+    </a>
+
+  
+
+    <!-- PROJECT 2 -->
+    <a href="pages/Chop&Chill.html" class="work-item">
+      <!-- <img class="work-thumb" src="images/thumb-02.jpg" alt="Nike x Motion"> -->
+       <video class="work-thumb" autoplay muted loop playsinline>
+        <source src="images/thumbnails/chop.mp4" type="video/mp4">
+      </video>
+      <div class="work-overlay">
+        <div class="work-cat">Post-Production</div>
+        <div class="work-name">Chop & Chill Commercial</div>
+      </div>
+      <div class="work-arrow">→</div>
+    </a>
+
+    <!-- PROJECT 3 -->
+    <a href="pages/Spiro.html" class="work-item">
+      <!-- <img class="work-thumb" src="images/thumb-02.jpg" alt="Nike x Motion"> -->
+       <video class="work-thumb" autoplay muted loop playsinline>
+        <source src="images/thumbnails/spiro.mp4" type="video/mp4">
+      </video>
+      <div class="work-overlay">
+        <div class="work-cat">Sound Design</div>
+        <div class="work-name">Spiro Commercial</div>
+      </div>
+      <div class="work-arrow">→</div>
+    </a>
+
+    <!-- ↑ ADDING MORE: Copy any .work-item block and paste here -->
+    <!-- TIP: The first item is always full-width. Items after that are 2-column. -->
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SERVICES
+══════════════════════════════════════ -->
+<section id="services">
+  <div class="section-label">What We Do</div>
+  <h2 class="section-title reveal">Services</h2>
+  <div class="services-grid">
+
+    <div class="service-item reveal">
+      <div class="service-num">01</div>
+      <div class="service-name">VFX</div>
+      <p class="service-desc">Cutting-edge visual effects that blur the line between reality and imagination. From subtle enhancements to full CG environments.</p>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-num">02</div>
+      <div class="service-name">Color</div>
+      <p class="service-desc">Cinematic color grading that defines the mood, tone, and emotion of your story. Every frame crafted with intention.</p>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-num">03</div>
+      <div class="service-name">Direction</div>
+      <p class="service-desc">End-to-end creative direction for music videos, brand films, and commercials. Concept to delivery — we lead with vision.</p>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-num">04</div>
+      <div class="service-name">Sound Design</div>
+      <p class="service-desc">Immersive soundscapes and audio design that amplify the visual narrative and leave audiences feeling something real.</p>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-num">05</div>
+      <div class="service-name">Editing</div>
+      <p class="service-desc">Rhythmic, story-driven editing that transforms raw footage into sequences with pacing that pulls you in.</p>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-num">06</div>
+      <div class="service-name">Motion</div>
+      <p class="service-desc">Motion graphics and animation that bring logos, titles, and concepts to life with fluid, purposeful movement.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-img-box">
+      <img src="images/about.jpeg" alt="VZN.EAD"> 
+      <div class="about-tag">Adesanya Emiola</div>
+    </div>
+    <div class="about-stats">
+      <div><div class="stat-val">50+</div><div class="stat-label">Projects</div></div>
+      <div><div class="stat-val">5+</div><div class="stat-label">Years</div></div>
+      <div><div class="stat-val">30+</div><div class="stat-label">Clients</div></div>
+    </div>
+  </div>
+  <div class="about-content reveal">
+    <div class="section-label">About</div>
+    <h2 class="about-title">We Craft<br><span>Visual</span><br>Stories</h2>
+    <p class="about-text">VZN.EAD is a Lagos-based visual studio specializing in music videos, brand films, and high-end commercials. We combine cinematic craft with bold creative vision to produce work that resonates.</p>
+    <p class="about-text">Every frame is intentional. Every cut, every color, every effect — built to serve the story and move the audience.</p>
+    <div class="about-tags">
+      <div class="tag-pill">Sound Design</div>
+      <div class="tag-pill">Brand Films</div>
+      <div class="tag-pill">Commercials</div>
+      <div class="tag-pill">VFX</div>
+      <div class="tag-pill">Color Grading</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="cta">
+  <div class="cta-eyebrow">Like what you see ?</div>
+  <h2 class="cta-title reveal">Lets<br><span>Work Together</span></h2>
+  <a href="contact.html" class="btn-primary">Start a Project →</a>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <a href="index.html" class="footer-logo">
+    <img src="images/logo.png" alt="VZN.EAD" style="height: 100px; width: auto;">
+  </a>
+  <ul class="footer-links">
+    <li><a href="https://instagram.com/vzn.ead" target="_blank">Instagram</a></li>
+    <li><a href="mailto:visionbyead@gmail.com">visionbyead@gmail.com</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 VZN.EAD. All rights reserved.</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/loader.js"></script>
+<script>
+// Mobile nav toggle
+function toggleMobileNav() {
+  document.querySelector('.nav-links').style.display =
+    document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex';
+}
+
+// Smooth scroll for anchor links in nav
+document.querySelectorAll('a[href^="index.html#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').split('#')[1];
+    const target = document.getElementById(id);
+    if(target) { e.preventDefault(); target.scrollIntoView({ behavior:'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
