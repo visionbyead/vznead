@@ -66,6 +66,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ── LAZY LOAD PORTFOLIO VIDEOS ── */
+  const lazyVideos = document.querySelectorAll('video.p-video');
+  if (lazyVideos.length) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const video = entry.target;
+          video.querySelectorAll('source').forEach(source => {
+            source.src = source.dataset.src;
+          });
+          video.load();
+          video.play();
+          videoObserver.unobserve(video);
+        }
+      });
+    }, { rootMargin: '200px' });
+    lazyVideos.forEach(video => videoObserver.observe(video));
+  }
+
   /* ── VIDEO MODAL ── */
   const modal = document.getElementById('modal');
   if (modal) {
@@ -105,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-});
+}); /* ← ONE closing brace for DOMContentLoaded */
 
 /* ── VIDEO MODAL FUNCTIONS ── */
 function openModal(src) {
