@@ -186,14 +186,16 @@ nav.scrolled {
 .mobile-menu {
   display: none;
   position: fixed;
-  top: 70px; left: 0; right: 0;
-  background: rgba(21,20,20,0.98);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--white-faint);
-  z-index: 9998;
-  padding: 16px 24px 32px;
+  top: 0; left: 0; right: 0; bottom: 0;  /* ← full screen */
+  background: var(--bg);                   /* ← solid, no blur */
+  z-index: 9999;                           /* ← above everything */
+  padding: 100px 32px 32px;               /* ← push links below logo */
   opacity: 0;
   transition: all 0.3s ease;
+}
+.mobile-menu.open {
+  display: block;
+  opacity: 1;
 }
 .mobile-menu.open {
   display: block;
@@ -496,7 +498,10 @@ nav.scrolled {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
 /* ═══════════════════════════════════════════════
    WORK GRID (home)
