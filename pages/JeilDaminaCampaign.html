@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeiel Damina Fashion Campaign— VZN.EAD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <style>
+    .project-body {
+      padding: 0 48px;
+    }
+    @media (max-width: 900px) {
+      .project-body { padding: 0 24px; }
+    }
+
+    .detail-link {
+  color: inherit;
+  text-decoration: none;
+}
+.detail-link:hover {
+  text-decoration: underline;
+}
+
+    /* ── VIDEO STAGE (main player, swaps between videos) ── */
+    .video-stage {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 480px;
+      background: #0b0b0b;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* frame wraps the iframe and holds the aspect ratio */
+    .stage-frame {
+      height: 100%;
+      aspect-ratio: 16 / 9; /* default: horizontal video */
+      max-width: 100%;
+    }
+
+    /* applied via JS when the active video is vertical (e.g. reels) */
+    .stage-frame.vertical {
+      aspect-ratio: 9 / 16;
+      width: auto;
+    }
+
+    .stage-frame iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* prev/next buttons floating over the stage */
+    .stage-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .stage-arrow.left { left: 12px; }
+    .stage-arrow.right { right: 12px; }
+
+    /* ── THUMBNAIL GRID (click to jump to a video) ── */
+    .video-thumbs {
+      display: grid;
+      grid-template-columns: repeat(var(--thumb-count, 5), 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .video-thumb {
+      aspect-ratio: 1 / 1;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      background: #1a1a1a;
+    }
+
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* highlights whichever thumb matches the video currently loaded */
+    .video-thumb.active {
+      border-color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-follower"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">
+    <img src="../images/logo.png" alt="VZN.EAD" style="height: 100px; width: auto;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html#work">Work</a></li>
+    <li><a href="../portfolio.html">Portfolio</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#services">Services</a></li>
+  </ul>
+  <a href="../contact.html" class="nav-cta">Let's Talk</a>
+</nav>
+
+<!-- ══════════════════════════════════════
+     PROJECT HEADER
+     Edit: title, category, breadcrumb
+══════════════════════════════════════ -->
+<div class="project-hero-section">
+  <div class="project-breadcrumb">
+    <a href="../portfolio.html">← Portfolio</a> &nbsp;/&nbsp; Social Campaign
+  </div>
+  <h1 class="project-title-big">Jeiel Damina<br> Fashion Campaign</h1>
+</div>
+
+<!-- ══════════════════════════════════════
+     VIDEO (left) + DETAILS (right)
+══════════════════════════════════════ -->
+<div class="project-body">
+
+  <!-- LEFT: MULTI-VIDEO PLAYER -->
+  <div class="project-video-col">
+
+    <!-- main stage: shows one video at a time -->
+    <div class="video-stage" id="videoStage">
+      <button class="stage-arrow left" id="prevBtn"><i class="ti ti-chevron-left"></i></button>
+      <div class="stage-frame" id="stageFrame">
+        <iframe id="mainPlayer" src="" title="" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <button class="stage-arrow right" id="nextBtn"><i class="ti ti-chevron-right"></i></button>
+    </div>
+
+    <!-- thumbnail row: populated by JS from the videos[] list below -->
+    <div class="video-thumbs" id="videoThumbs"></div>
+
+  </div>
+
+  <!-- RIGHT: PROJECT DETAILS -->
+  <div class="project-details-col">
+
+    <div class="detail-block">
+      <div class="detail-label">Client</div>
+      <div class="detail-val">Jeiel Damina</div>
+    </div>
+
+    <div class="detail-block">
+      <div class="detail-label">Category</div>
+      <div class="detail-val">Brand/Fashion Films</div>
+    </div>
+
+    <div class="detail-block">
+      <div class="detail-label">Year</div>
+      <div class="detail-val">2026</div>
+    </div>
+
+    <div class="detail-block">
+      <div class="detail-label">Services</div>
+      <div class="detail-text">Online Edit</div>
+    </div>
+
+   <div class="detail-block">
+  <div class="detail-label">Director</div>
+  <div class="detail-val"><a href="https://studio3.vzy.io" target="_blank" class="detail-link">Fredthe03</a></div>
+</div>
+
+    <div class="detail-block">
+      <div class="detail-label">Production Company</div>
+      <div class="detail-val">Studio 3</div>
+    </div>
+    
+
+    <!-- ↑ COPY .detail-block to add more rows -->
+
+  </div>
+</div><!-- /project-body -->
+
+<!-- ══════════════════════════════════════
+     NEXT / PREV PROJECT NAVIGATION
+══════════════════════════════════════ -->
+<div class="project-nav">
+  <a href="../portfolio.html" class="project-nav-item" style="text-align:center;">
+    <div class="project-nav-dir">← Back</div>
+    <div class="project-nav-name">See More Works</div>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="../index.html" class="footer-logo">
+    <img src="../images/logo.png" alt="VZN.EAD" style="height: 100px; width: auto;">
+  </a>
+  <ul class="footer-links">
+    <li><a href="https://instagram.com/vzn.ead" target="_blank">Instagram</a></li>
+    <li><a href="mailto:visionbyead@gmail.com">visionbyead@gmail.com</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 VZN.EAD. All rights reserved.</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../js/main.js"></script>
+
+<script>
+  // ── entry animations, same as your original page ──
+  window.addEventListener('load', () => {
+    gsap.fromTo('.project-title-big',
+      { opacity:0, y:50 },
+      { opacity:1, y:0, duration:1, ease:'power4.out', delay:0.1 }
+    );
+    gsap.fromTo('.project-video-col, .project-details-col',
+      { opacity:0, y:36 },
+      { opacity:1, y:0, duration:0.8, stagger:0.1, ease:'power3.out', delay:0.3 }
+    );
+    gsap.utils.toArray('.gallery-item').forEach((el, i) => {
+      gsap.fromTo(el,
+        { opacity:0, y:30 },
+        { opacity:1, y:0, duration:0.6, ease:'power3.out',
+          scrollTrigger: { trigger: el, start:'top 90%', once:true },
+          delay: i * 0.06
+        }
+      );
+    });
+  });
+
+  // ── VIDEO STAGE LOGIC ──
+  // Each entry: YouTube video id, whether it's a vertical (9:16) video,
+  // and the thumbnail image shown in the grid below the stage.
+ const videos = [
+  { id: 'hk4dZYkr6Ck', vertical: true, thumb: 'https://img.youtube.com/vi/hk4dZYkr6Ck/hqdefault.jpg' },
+  { id: 'cIT5CtBCFAs', vertical: true, thumb: 'https://img.youtube.com/vi/cIT5CtBCFAs/hqdefault.jpg' },
+  { id: 'L1PN_asZ5r0', vertical: true, thumb: 'https://img.youtube.com/vi/L1PN_asZ5r0/hqdefault.jpg' },
+  { id: 'rAqEmRWyfeE', vertical: true, thumb: 'https://img.youtube.com/vi/rAqEmRWyfeE/hqdefault.jpg' },
+  { id: '3c9h8gVR0DA', vertical: true, thumb: 'https://img.youtube.com/vi/3c9h8gVR0DA/hqdefault.jpg' }
+];
+
+  let currentIndex = 0;
+
+  const stageFrame = document.getElementById('stageFrame');
+  const mainPlayer = document.getElementById('mainPlayer');
+  const thumbsWrap = document.getElementById('videoThumbs');
+
+  // loads a video into the main player and updates styling/active state
+  function loadVideo(index) {
+    currentIndex = (index + videos.length) % videos.length; // wraps around
+    const v = videos[currentIndex];
+    mainPlayer.src = `https://www.youtube.com/embed/${v.id}`;
+    stageFrame.classList.toggle('vertical', v.vertical);
+
+    document.querySelectorAll('.video-thumb').forEach((el, i) => {
+      el.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  // builds the thumbnail grid once on page load
+  function buildThumbs() {
+    thumbsWrap.style.setProperty('--thumb-count', videos.length);
+    videos.forEach((v, i) => {
+      const thumb = document.createElement('div');
+      thumb.className = 'video-thumb';
+      thumb.innerHTML = `<img src="${v.thumb}" alt="Video ${i + 1}">`;
+      thumb.addEventListener('click', () => loadVideo(i));
+      thumbsWrap.appendChild(thumb);
+    });
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => loadVideo(currentIndex - 1));
+  document.getElementById('nextBtn').addEventListener('click', () => loadVideo(currentIndex + 1));
+
+  buildThumbs();
+  loadVideo(0);
+</script>
+</body>
+</html>
